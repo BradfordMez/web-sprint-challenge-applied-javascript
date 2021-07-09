@@ -1,4 +1,27 @@
+import axios from "axios"
+import { response } from "msw"
+
 const Card = (article) => {
+  const mainDiv = document.createElement('div')
+  const headline =document.createElement('div')
+  const author = document.createElement('div')
+  const imgDiv = document.createElement('div')
+  const imgImg = document.createElement('img')
+  const authorName = document.createElement('span')
+  mainDiv.classList.add('card')
+  headline.classList.add('headline')
+  author.classList.add('author')
+  imgDiv.classList.add('img-container')
+  headline.textContent = `${article.headline}`
+  imgImg.src = `${article.authorPhoto}`
+  authorName.textContent = `${article.authorName}`
+  mainDiv.appendChild(headline)
+  mainDiv.appendChild(author)
+  author.appendChild(imgDiv)
+  imgDiv.appendChild(imgImg)
+  author.appendChild(authorName)
+  return mainDiv
+}
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -17,9 +40,21 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
-}
+
 
 const cardAppender = (selector) => {
+  const selection = document.querySelector(`${selector}`)
+  axios.get(`http://localhost:5000/api/articles`)
+    .then(response=>{
+      const article = Card(response.data.articles)
+      return article
+    })
+    .then(article=>{
+      selection.appendChild(article)
+    })
+}
+
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -28,6 +63,6 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-}
+
 
 export { Card, cardAppender }
