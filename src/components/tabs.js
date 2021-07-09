@@ -9,8 +9,8 @@ const Tabs = (topics) => {
   const tabTopics = topics.map(obj=>{
     const topicInput = document.createElement('div')
     topicInput.classList.add('tab')
-    topicsDiv.appendChild(topicInput)
     topicInput.textContent = obj
+    topicsDiv.appendChild(topicInput)
     return tabTopics
   })
   return topicsDiv
@@ -39,10 +39,8 @@ const tabsAppender = (selector) => {
   axios.get(`http://localhost:5000/api/topics`)
     .then(response=>{
       const topic = Tabs(response.data.topics)
-      return topic
-    })
-    .then(topic=>{
       selection.appendChild(topic)
+      return topic
     })
     .catch(err=>console.log(err.message))
     .finally(()=>{console.log('done')})

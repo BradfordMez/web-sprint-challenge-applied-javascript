@@ -34,7 +34,7 @@ const Header = (title, date, temp) => {
 
 const headerAppender = (selector) => {
   const selection = document.querySelector(`${selector}`)
-  selection.appendChild(Header())
+  selection.appendChild(Header('TITLEPAGE', '7/9/2021', '140°'))
   return selection
 }
 
