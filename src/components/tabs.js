@@ -35,16 +35,16 @@ const Tabs = (topics) => {
 
 const tabsAppender = (selector) => {
   const selection = document.querySelector(`${selector}`)
-  const topics = []
   axios.get(`http://localhost:5000/api/topics`)
     .then(response=>{
-      response.data.forEach(obj=>{
-        topics.push(obj.topics)
-      })
-      return topics
+      const topic = Tabs(response.data.topics)
+      return topic
     })
-  selection.appendChild(Tabs())
-  return selection
+    .then(topic=>{
+      selection.appendChild(topic)
+    })
+    .catch(err=>console.log(err.message))
+    .finally(()=>{console.log('done')})
 }
 
 
