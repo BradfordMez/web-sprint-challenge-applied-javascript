@@ -1,6 +1,4 @@
 const Header = (title, date, temp) => {
-
-
   const headerDiv = document.createElement('div')
   const headerData = document.createElement('span')
   const headerTitle=document.createElement('h1')

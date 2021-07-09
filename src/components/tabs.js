@@ -4,12 +4,13 @@ import { response } from "msw"
 
 const Tabs = (topics) => {
   const topicsDiv = document.createElement('div')
+  topicsDiv.classList.add('topics')
 
   const tabTopics = topics.map(obj=>{
     const topicInput = document.createElement('div')
     topicInput.classList.add('tab')
-    topicInput.textContent = obj
     topicsDiv.appendChild(topicInput)
+    topicInput.textContent = `${obj}`
     return tabTopics
   })
   return topicsDiv
@@ -58,4 +59,6 @@ const tabsAppender = (selector) => {
 
 
 export { Tabs, tabsAppender }
+
+
 
