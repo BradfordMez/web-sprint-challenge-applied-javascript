@@ -65,7 +65,21 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+
+The Document Object Model is an object representation of the HTML elements on a webpage
+
 2. What is an event?
+
+Events are things that change HTML elements
+
 3. What is an event listener?
+
+Event Listeners are used to create triggers for the actual event you want done.
+
 4. Why would we convert a NodeList into an Array?
+
+Nodelist cant use array methods like .push .slice .etc
+
 5. What is a component?
+
+Components are reusable bits of code that return HTML elements

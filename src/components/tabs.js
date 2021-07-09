@@ -10,7 +10,7 @@ const Tabs = (topics) => {
     const topicInput = document.createElement('div')
     topicInput.classList.add('tab')
     topicsDiv.appendChild(topicInput)
-    topicInput.textContent = `${obj}`
+    topicInput.textContent = obj
     return tabTopics
   })
   return topicsDiv
